@@ -33,7 +33,7 @@ namespace ReceiveMessage.Controllers
             PerclScript helloScript = new PerclScript(new List<PerclCommand>());
             string to = request.From;
             // Use as env variable rather than defining it in the code
-            string from = "+19809396134";
+            string from = getFromNumber();
             Console.WriteLine("to: " + to);
             Console.WriteLine("from: " + from);
             // Create a SMS Command
@@ -57,6 +57,11 @@ namespace ReceiveMessage.Controllers
         private string getApiKey()
         {
             return System.Environment.GetEnvironmentVariable("API_KEY");
+        }
+
+        private string getFromNumber()
+        {
+            return System.Environment.GetEnvironmentVariable("FROM_NUMBER");
         }
     }
 }
