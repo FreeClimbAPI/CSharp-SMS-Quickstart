@@ -13,20 +13,6 @@ namespace ReceiveMessage.Controllers
     {
 
         [HttpPost]
-        // public ActionResult smsConnect(CallResult freeClimbRequest)
-        // {
-        //     string acctId = getAcctId();
-        //     string apiKey = getApiKey();
-        //     FreeClimbClient client = new FreeClimbClient(acctId, apiKey);
-        //     string to = freeClimbRequest.getFrom;
-        //     string from = "+19809396134";
-        //     client.getMessagesRequester.create(from, to, "Hello from the C# SDK!");
-
-        //     Console.WriteLine("to: " + to);
-        //     Console.WriteLine("from: " + from);
-
-        //     return Ok();
-        // }
         public string Post(CallResult request)
         {
             // Create a PerCl script
@@ -37,7 +23,7 @@ namespace ReceiveMessage.Controllers
             Console.WriteLine("to: " + to);
             Console.WriteLine("from: " + from);
             // Create a SMS Command
-            Sms messageToSend = new Sms(to, from, "Hello from the C# SDK!");
+            Sms messageToSend = new Sms(to, from, "Hello from the C# SDK!", "https://test.abc");
 
             Console.WriteLine(messageToSend.ToJson());
             // Add the command
