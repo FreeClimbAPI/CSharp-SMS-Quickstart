@@ -1,38 +1,70 @@
-# C# - Receive a Message Tutorial
+# C# SMS Quickstart
 
-This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/how-to-receive-a-message#section-c). Specifically, the project will:
+This quickstart serves as a guide to get your first SMS application up and running with [FreeClimb](https://docs.freeclimb.com/docs/how-freeclimb-works).
 
--Receive and respond to an incoming SMS message
+Specifically, the project will:
 
-## Setting up your new app within your FreeClimb account
+- Receive an incoming message via a FreeClimb application
+- Respond "Hello World!" to the incoming message
 
-To get started using a FreeClimb account, follow the instructions [here](https://docs.freeclimb.com/docs/getting-started-with-freeclimb).
+## Tutorial
 
-## Setting up the Tutorial
+We offer a [C# SMS Quickstart Tutorial](https://docs.freeclimb.com/docs/c-messaging-quickstart) for more detailed set-up instructions and explanation of how FreeClimb works.
 
-1. Install the nuget packages necessary using command:
+## Requirements
+
+A [FreeClimb account](https://www.freeclimb.com/dashboard/signup/)
+
+A [registered application](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#register-an-app) with a named alias
+
+A [configured FreeClimb number](https://docs.freeclimb.com/docs/getting-and-configuring-a-freeclimb-number) assigned to your application
+
+Trial accounts: a [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers)
+
+## Tools:
+
+- [.NET](https://dotnet.microsoft.com/en-us/download)
+- [ngrok](https://ngrok.com/download) (recommended for hosting)
+
+## Setting up the Quickstart
+
+1. Install the required packages
 
    ```bash
-   $ dotnet add package freeclimb-cs-sdk
+   dotnet add package freeclimb
    ```
-2. Configure environment variables.
 
-| ENV VARIABLE | DESCRIPTION                                                                                                                              |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| ACCOUNT_ID   | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard           |
-| API_KEY   | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in Dashboard |
+2. Configure environment variables (in `Properties/launchSettings.json`):
 
-3. Provide a value for the variable `from` in FreeClimbController.cs. `from` is a FreeClimb number that makes the call ([Incoming Numbers](https://www.freeclimb.com/dashboard/portal/numbers)).
+   | ENV VARIABLE     | DESCRIPTION                                                                                                                            |
+   | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+   | ACCOUNT_ID       | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard. |
+   | API_KEY          | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.    |
+   | FREECLIMB_NUMBER | The FreeClimb number that is associated with this application                                                                          |
 
+3. Replace placeholder values for `to` and `from` numbers (in `Controllers/IncomingSmsController.cs`):
 
-## Runnning the Tutorial
+   | VARIABLE | DESCRIPTION                                                                                                                                                                                            |
+   | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+   | TO       | The number which will receive messages from your application. For trial accounts, this is your [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers). |
+   | FROM     | The number that sends messages from your application. Your FreeClimb number.                                                                                                                           |
 
-1. Run the application using command:
+4. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/IncomingSms` to your App Config's SMS URL field:
 
    ```bash
-   $ dotnet run
+   https://YOUR-URL.ngrok.io/IncomingSms
    ```
 
-## Getting Help
+## Running the Quickstart
 
-If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
+1. Start your voice quickstart application
+
+   ```bash
+   dotnet run
+   ```
+
+2. Text the FreeClimb number assigned to the application you've configured for this tutorial
+
+## Feedback & Issues
+
+If you would like to give the team feedback or you encounter a problem, please [contact support](https://www.freeclimb.com/support/) or [submit a ticket](https://freeclimb.com/dashboard/portal/support) in the dashboard.
