@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using freeclimb.Api;
 using freeclimb.Client;
 using freeclimb.Model;
-using System.Diagnostics;
 
 namespace CSharp_SMS_Quickstart.Controllers;
 
