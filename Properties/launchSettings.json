@@ -25,8 +25,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ACCOUNT_ID": "YOUR_ACCOUNT_ID",
-        "API_KEY": "YOUR_API_KEY",
-        "FREECLIMB_NUMBER": "YOUR_FREECLIMB_NUMBER"
+        "API_KEY": "YOUR_API_KEY"
       },
       "dotnetRunMessages": true
     }

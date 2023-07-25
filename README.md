@@ -36,11 +36,10 @@ Trial accounts: a [verified number](https://docs.freeclimb.com/docs/using-your-t
 
 2. Configure environment variables (in `Properties/launchSettings.json`):
 
-   | ENV VARIABLE     | DESCRIPTION                                                                                                                            |
-   | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-   | ACCOUNT_ID       | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard. |
-   | API_KEY          | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.    |
-   | FREECLIMB_NUMBER | The FreeClimb number that is associated with this application                                                                          |
+   | ENV VARIABLE | DESCRIPTION                                                                                                                            |
+   | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+   | ACCOUNT_ID   | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard. |
+   | API_KEY      | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.    |
 
 3. Replace placeholder values for `to` and `from` numbers (in `Controllers/IncomingSmsController.cs`):
 
