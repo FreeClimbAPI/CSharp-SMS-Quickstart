@@ -48,10 +48,16 @@ Trial accounts: a [verified number](https://docs.freeclimb.com/docs/using-your-t
    | TO       | The number which will receive messages from your application. For trial accounts, this is your [verified number](https://docs.freeclimb.com/docs/using-your-trial-account#verifying-outbound-numbers). |
    | FROM     | The number that sends messages from your application. Your FreeClimb number.                                                                                                                           |
 
-4. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/IncomingSms` to your App Config's SMS URL field:
+4. Run ngrok
 
    ```bash
-   https://YOUR-URL.ngrok.io/IncomingSms
+   ngrok http 5027
+   ```
+
+5. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/IncomingSms` to your App Config's SMS URL field:
+
+   ```bash
+   https://de01-63-209-137-19.ngrok-free.app/IncomingSms
    ```
 
 ## Running the Quickstart
