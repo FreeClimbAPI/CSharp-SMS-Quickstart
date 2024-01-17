@@ -57,7 +57,7 @@ Trial accounts: a [verified number](https://docs.freeclimb.com/docs/using-your-t
 5. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/IncomingSms` to your App Config's SMS URL field:
 
    ```bash
-   https://de01-63-209-137-19.ngrok-free.app/IncomingSms
+   https://YOUR-URL.ngrok-free.app/IncomingSms
    ```
 
 ## Running the Quickstart
