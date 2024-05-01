@@ -2,6 +2,7 @@
 using freeclimb.Api;
 using freeclimb.Client;
 using freeclimb.Model;
+using DotNetEnv;
 
 namespace CSharp_SMS_Quickstart.Controllers;
 
@@ -29,10 +30,13 @@ public class IncomingSmsController : ControllerBase
     public IncomingSmsController(ILogger<IncomingSmsController> logger)
     {
         _logger = logger;
-
+        DotNetEnv.Env.Load();
+        
+        string apiServer = System.Environment.GetEnvironmentVariable("API_SERVER") ?? "https://www.freeclimb.com/apiserver";
         string accountId = System.Environment.GetEnvironmentVariable("ACCOUNT_ID");
         string apiKey = System.Environment.GetEnvironmentVariable("API_KEY");
         Configuration config = new Configuration();
+        config.BasePath = apiServer;
         config.Username = accountId;
         config.Password = apiKey;
         freeclimbClient = new DefaultApi(config);
@@ -41,8 +45,8 @@ public class IncomingSmsController : ControllerBase
     [HttpPost(Name = "PostIncomingSms")]
     public IActionResult Post([FromBody] IncomingSmsWebhookRequest request)
     {
-        string to = "";
-        string from = "";
+        string to = request.from;
+        string from = System.Environment.GetEnvironmentVariable("FREECLIMB_NUMBER");
        
         var messageRequest = new MessageRequest(null, null, null, 0, from, to, "Hello, World!");
         MessageResult result = freeclimbClient.SendAnSmsMessage(messageRequest);
