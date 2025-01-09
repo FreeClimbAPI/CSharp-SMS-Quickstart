@@ -27,6 +27,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Liveness probe endpoint
+app.MapGet("/live", () => Results.Ok(new { status = "live" })).WithName("LiveCheck");
+
+// Readiness probe endpoint
+app.MapGet("/ready", () => Results.Ok(new { status = "ready" })).WithName("ReadyCheck");
+
 Console.WriteLine("Welcome to FreeClimb!\n");
 Console.WriteLine("Your web server is listening at http://127.0.0.1:3000");
 Console.WriteLine("View an example PerCL JSON response to FreeClimb at http://127.0.0.1:3000/swagger/index.html\n");
