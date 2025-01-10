@@ -47,11 +47,10 @@ public class IncomingSmsController : ControllerBase
     {
         string to = request.from;
         string from = System.Environment.GetEnvironmentVariable("FREECLIMB_NUMBER");
-       
-        var messageRequest = new MessageRequest(null, null, null, 0, from, to, "Hello, World!");
+
+        var messageRequest = new MessageRequest(null, null, null, 0, from, to, "Hello, World!", null, new List<string>());
         MessageResult result = freeclimbClient.SendAnSmsMessage(messageRequest);
 
         return Ok();
     }
 }
-
